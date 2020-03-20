@@ -30,7 +30,7 @@ def transaccion():
     if address:
         user_search = User.get_by_address(address)
         if user_search:
-            if Opt.get_by_number(number_):
+            if Opt.get_by_number(number_) or len(number_) < 100:
                 response_object = {"status": "error"}
             else:
                 # usuario a quien se le va hacer la transaccion
