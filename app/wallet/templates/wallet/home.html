@@ -2,109 +2,95 @@
 
 {% block content %}
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-  <h1 class="display-4">Wallet</h1>
+    <h1 class="display-4">Wallet</h1>
 </div>
 {%  if data['wallet'] %}
 <div class="container">
-  <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">My wallet</h4>
-        {{ current_user.address }}
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">${{ data['wallet'].balance }} <small class="text-muted"></small></h1>
-
-        <ul class="list-unstyled mt-3 mb-4">
-        </ul>
-        <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#optModal">Ver opts disponibles </button>-->
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary" data-toggle="modal"
-          data-target="#exampleModal" data-whatever="@mdo">Realizar transacción</button>
-
-      </div>
-    </div>
-  </div>
-  <h4 class="text-center">Historial de Transacción </h4>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Direccion</th>
-        <th scope="col">Valor</th>
-        <th scope="col">Fecha</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for transaccion in data['transaccions'] %}
-      <tr>
-        <th scope="row"> {{ loop.index }} </th>
-        <td>{{ transaccion.transferred_at.address }}</td>
-        <td>{{ transaccion.transferred_value }}</td>
-        <td>{{ transaccion.created_at }}</td>
-      </tr>
-      {% endfor %}
-
-    </tbody>
-  </table>
-  <!-- Modal opts -->
-  <div class="modal fade" id="optModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Opts disponibles</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          {% for opt in  data['opts'] %}
-          {{ opt.number }}
-          {% endfor %}
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Transcaciones -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Realizar transacción</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form id="trans">
-          <div class="modal-body">
-
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Direccion:</label>
-              <input type="text" class="form-control" id="address" value="" placeholder="Direccion" required>
+    <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">My wallet</h4>
+                {{ current_user.address }}
             </div>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Opt:</label>
-              <input type="text" class="form-control" id="opt" value="" placeholder="opt" required>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title">${{ data['wallet'].balance }} <small
+                        class="text-muted"></small></h1>
+
+                <ul class="list-unstyled mt-3 mb-4">
+                </ul>
+                <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#optModal">Ver opts disponibles </button>-->
+                <button type="button" class="btn btn-lg btn-block btn-outline-primary" data-toggle="modal"
+                        data-target="#exampleModal" data-whatever="@mdo">Realizar transacción
+                </button>
+
             </div>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Valor:</label>
-              <input type="text" class="form-control" id="value" value="" placeholder="Valor a transferrir" required>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" id="transaccion">transacción</button>
-          </div>
-        </form>
-      </div>
+        </div>
     </div>
-  </div>
+    <h4 class="text-center">Historial de Transacción </h4>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Fecha</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for transaccion in data['transaccions'] %}
+        <tr>
+            <th scope="row"> {{ loop.index }}</th>
+            <td>{{ transaccion.transferred_at.address }}</td>
+            <td>{{ transaccion.transferred_value }}</td>
+            <td>{{ transaccion.created_at }}</td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <!-- Transcaciones -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Realizar transacción</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="trans">
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Secret:</label>
+                            <input type="text" class="form-control" id="secret" value="{{data['secret']}}"
+                                   required disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Direccion:</label>
+                            <input type="text" class="form-control" id="address" value="" placeholder="Direccion"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Opt:</label>
+                            <input type="text" class="form-control" id="opt" value="" placeholder="opt" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Valor:</label>
+                            <input type="text" class="form-control" id="value" value=""
+                                   placeholder="Valor a transferrir" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="transaccion">transacción</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </div>
 {% endif %}

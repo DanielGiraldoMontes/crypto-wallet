@@ -49,6 +49,10 @@ class User(db.Model, UserMixin):
         return User.query.filter_by(email=email).first()
 
     @staticmethod
+    def get_by_email_and_password(email, password):
+        return User.query.filter_by(email=email, password=password).first()
+
+    @staticmethod
     def get_by_address(address):
         return User.query.filter_by(address=address).first()
 
