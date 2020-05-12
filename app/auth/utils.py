@@ -1,5 +1,9 @@
-import os, hashlib, base58, binascii
-import math, random
+import base58
+import binascii
+import hashlib
+import math
+import os
+import random
 import secrets
 
 

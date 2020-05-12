@@ -1,6 +1,5 @@
 
 from app import db
-#wallet_address_id = db.Column(db.Integer, db.ForeignKey('wallet_user.address', ondelete='CASCADE'), nullable=False)
 
 
 class Wallet(db.Model):
