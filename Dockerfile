@@ -18,5 +18,7 @@ COPY . /usr/src/app
 # add executed permission
 RUN chmod +x /usr/src/app/entrypoint.sh
 
+EXPOSE 5000
+
 # run server
 CMD ["/bin/bash", "/usr/src/app/entrypoint.sh"]

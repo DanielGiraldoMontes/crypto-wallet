@@ -34,7 +34,7 @@ def transaccion():
     transferred_value = request.form['value']
     secret = request.form['secret']
 
-    if int(transferred_value) < 1:
+    if float(transferred_value) < 1:
         return message("error", Messages.INVALID_TRANSFER_VALUE)
 
     try:
@@ -62,7 +62,7 @@ def transaccion():
 
                 # usuario a quien se le va hacer la transaccion
                 wallet_to_trans = Wallet.get_by_id(user_search.id)
-                if wallet_to_trans.balance < int(transferred_value):
+                if wallet_current_user.balance < float(transferred_value):
                     return message("error", Messages.VALUE_DISPOSED_FAIL)
 
                 wallet_current_user.balance = wallet_current_user.balance - float(transferred_value)
