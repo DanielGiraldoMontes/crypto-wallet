@@ -51,7 +51,6 @@ def show_signup_form():
 @auth_bp.route('/login/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        logging.error(request.form)
         email = request.form['email']
         password = request.form['password']
         remember = request.form['remember']
