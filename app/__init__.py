@@ -30,7 +30,7 @@ def create_app(script_info=None):
     from app.wallet import wallet_bp
     app.register_blueprint(wallet_bp)
 
-    app.cli.add_command(create_tables)
+    # app.cli.add_command(create_tables)
 
     @app.route('/')
     def hello_world():
