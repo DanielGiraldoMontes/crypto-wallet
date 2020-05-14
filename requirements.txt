@@ -20,3 +20,4 @@ Flask-WTF==0.14.3
 base58
 email_validator
 wtforms
+python-dotenv # Dependency to work with flask commands
