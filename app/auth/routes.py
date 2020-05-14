@@ -6,7 +6,7 @@ from flask import render_template, redirect, url_for, request, jsonify
 from flask_login import current_user, login_user, logout_user
 from werkzeug.urls import url_parse
 
-from app import login_manager
+from ..extensions import login_manager
 from . import auth_bp
 from .models import User, Wallet
 # utils

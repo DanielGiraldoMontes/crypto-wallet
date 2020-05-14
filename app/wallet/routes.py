@@ -5,7 +5,7 @@ import jwt
 from flask import render_template, request, jsonify
 from flask_login import login_required, current_user
 
-from app import db
+from ..extensions import db
 from app.auth.models import User, Wallet, Opt, Transaction
 from config import BaseConfig
 from . import wallet_bp
