@@ -14,4 +14,4 @@ flask db upgrade
 
 # shellcheck disable=SC2164
 cd /usr/src/app
-python app.py run -h 0.0.0.0
+python app.py run -h 0.0.0.0 -p 5000

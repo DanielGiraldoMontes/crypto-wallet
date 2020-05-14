@@ -1,6 +1,5 @@
 import binascii
 import hashlib
-import logging
 import os
 
 from flask import render_template, redirect, url_for, request, jsonify
