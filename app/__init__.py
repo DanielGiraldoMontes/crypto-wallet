@@ -1,13 +1,13 @@
 import os
 
 from flask import Flask, render_template
-from flask_login import LoginManager
 from flask_migrate import Migrate
-from flask_sqlalchemy import SQLAlchemy
-from .commands import create_tables
 
-login_manager = LoginManager()
-db = SQLAlchemy()
+from app.auth import auth_bp
+from app.wallet import wallet_bp
+from .commands import create_tables
+from .extensions import db, login_manager
+
 migrate = Migrate()
 
 
@@ -24,13 +24,10 @@ def create_app(script_info=None):
     db.init_app(app)
     migrate.init_app(app, db)
 
-    from app.auth import auth_bp
     app.register_blueprint(auth_bp)
-
-    from app.wallet import wallet_bp
     app.register_blueprint(wallet_bp)
 
-    # app.cli.add_command(create_tables)
+    app.cli.add_command(create_tables)
 
     @app.route('/')
     def hello_world():
