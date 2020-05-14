@@ -1,10 +1,11 @@
-import base58
 import binascii
 import hashlib
 import math
 import os
 import random
 import secrets
+
+import base58
 
 
 def generate_opt():
