@@ -21,4 +21,3 @@ base58
 email_validator
 wtforms
 flask
-psycopg2
