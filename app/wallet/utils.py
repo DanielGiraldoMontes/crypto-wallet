@@ -1,4 +1,7 @@
 class Messages:
+    """
+    This class define utils messages to show for an error.
+    """
     INVALID_TRANSFER_VALUE = "EL VALOR A TRANSFERIR NO ES VALIDO"
     INVALID_TOKEN = "EL TOKEN INTRODUCIDO NO ES VALIDO"
     INVALID_WALLET = "LA WALLET DE DESTINO NO EXISTE"
@@ -11,6 +14,9 @@ class Messages:
 
 
 class Constants:
+    """
+    This constants class is very important for the Token - Opt validation.
+    """
     PIN = "PIN"
     AMMOUNT = "MONTO"
     WALLET = "CUENTA"
